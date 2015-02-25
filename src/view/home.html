@@ -1,0 +1,54 @@
+<!-- 表示 -->
+<div class="top_container" ng-init="initPageCtr()">
+    <div class="text text_h2 text_head">
+        <p><span>イベント参加者リスト</span></p>
+    </div>
+    <div class="text text_field0 status_text">
+        <p><span>参加者数</span><span>{{users.length}}</span><span>人</span></p>
+    </div>
+
+    <div class="text_field0 search_field">
+        <input class="search_input" id="search_key" ng-model="searchText" type="text" value=" ">
+    </div>
+    <div class="html_button search_button">
+        <input class="submit_search" type="submit" ng-click="searchFunct()" value="検索" tabindex="0">
+    </div>
+    <div class="html_button create_button" style="cursor: pointer;">
+        <input class="create_input" type="submit" ui-sref="create_user" value="新規作成" tabindex="0">
+    </div>
+</div>
+
+<div class="table_container friend_table">
+    <table class="html_table">
+        <tr>
+            <th class="colum_id"><a href="">ID</a></th>
+            <th class="colum_name"><a href="">名前</a></th>
+            <th class="colum_status"><a href="">状態</a></th>
+            <th class="colum_mail"><a href="">メールアドレス</a></th>
+            <th class="colum_ctr"><a href="">操作</a></th>
+        </tr>
+        <tr ng-repeat="user in userData">
+            <td ng-if="">{{user.id_num}}</td>
+            <td ng-class="setColor(user.sex)">{{user.name}}</td>
+            <td>
+                <span ng-bind="user.statusString"></span>
+             </td>
+            <td>{{user.mail}}</td>
+            <td>
+                <div class="html_button edit_button" n="cursor: pointer;">
+                    <input class="edit_input" ui-sref="edit_user({id : user.id})"  type="submit" value="編集" tabindex="0">
+                    <input class="delete_input" type="submit" ng-click="goDeletePage(user.id)"  value="削除" tabindex="0">
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div class="bottom-container">
+    <div class="html_button pre_button">
+        <input class="input_button" type="submit" ng-click="getPage(currentPage-1)" value="<< 前の5件">
+    </div>
+    <div class="html_button next_button">
+        <input class="input_button" type="submit" ng-click="getPage(currentPage+1)" value="次の5件 >>">
+    </div>
+</div>

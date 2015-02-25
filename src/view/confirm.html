@@ -1,0 +1,65 @@
+
+<!-- 表示 -->
+<div class="container"  ng-init="initPageCtr()">
+    <div class="top_container">
+        <div class="text text_h2 text_head">
+            <p><span>参加者の新規登録</span></p>
+        </div>
+    </div>
+
+    <div class="table_container friend_table">
+        <div class="name_colum">
+            <div class="label_text name_label">
+                <p><span>名前:</span></p>
+            </div>
+            <div class="text_field input_field">
+                <spam class="text_input" value="">{{user.name}}</span>
+            </div>
+        </div>
+        <div>
+            <div class="select_text select_box">
+                <p><span>性別</span><span>:</span></p>
+            </div>
+            <div class="selectbox_sex1">
+                <label>
+                    <div class="confirm_box_text1">
+                        <p>
+                            <span>{{user.sexString}}</span>
+                        </p>
+                    </div>
+                </label>
+            </div>
+        </div>
+        <div>
+            <div class="select_text1 select_box1">
+                <p><span>状態</span><span>:</span></p>
+            </div>
+            <div class="selectbox_sex3">
+                <label>
+                    <div class="confirm_box_text2">
+                        <p><span>{{user.statusString}}</span></p>
+                    </div>
+                </label>
+            </div>
+        </div>
+
+        <div clase="mail_colum">
+            <div class="label_text1 mail_label">
+                <p><span>メールアドレス:</span></p>
+            </div>
+            <div class="text_field1 input_field">
+                <input class="text_input1" name="mail" type="hidden" value="<?php echo $data['mail']?>">
+                <spam class="text_input1" value="">{{user.mail}}</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="bottom-container">
+        <div class="html_button pre_button">
+            <input class="create_input" ng-click="formSubmitCtr()" type="submit" value="保存する" tabindex="0">
+        </div>
+        <div class="html_button next_button">
+            <input class="cancel_input" type="submit" ui-sref="edit_input" value="修正する" tabindex="0">
+        </div>
+    </div>
+</div>
